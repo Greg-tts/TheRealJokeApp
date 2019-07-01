@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Joke</title>
+</head>
+<div th:insert="fragments/nav"></div>
+<body>
+	<span>Content: </span><div th:text="${joke.content}"></div>
+	<span>Punch Line: </span><div th:text="${joke.punchLine}"></div>
+	<span>NSFW: </span><div th:text="${joke.nsfw}"></div>
+	
+	<form th:object="${joke}" th:action="@{/joke/} + ${joke.id}" th:method="delete">
+    	<input type="submit" value="Delete Joke">
+    </form>
+</body>
+</html>

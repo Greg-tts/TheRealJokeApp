@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Joke</title>
+</head>
+<div th:insert="fragments/nav"></div>
+<body>
+
+	<h1>
+		<div th:text="${message}"></div>
+	</h1>
+	<div th:if="${!allJokes.empty}">
+		<form th:object="${joke}" th:action="@{/jokes}" th:method="delete">
+			<input type="submit" value="Delete Joke">
+		</form>
+	</div>
+	<div th:if="${allJokes.empty}">
+		<h1>No Jokes Available</h1>
+	</div>
+	<ul th:each="joke: ${allJokes}">
+		<a th:href="@{/joke/} + ${joke.id}">
+			<li><span>Content: </span><span th:text="${joke.content}"></span></li>
+			<li><span>Punch Line: </span><span th:text="${joke.punchLine}"></span></li>
+			<li><span>NSFW: </span><span th:text="${joke.nsfw}"></span></li>
+		</a>
+		<li><a th:href="@{/joke/} + ${joke.id} + '/update'">Update
+				Joke</a></li>
+		<li>
+			<form th:object="${joke}" th:action="@{/joke/} + ${joke.id}"
+				th:method="delete">
+				<input type="submit" value="Delete Joke">
+			</form>
+		</li>
+	</ul>
+
+</body>
+</html>

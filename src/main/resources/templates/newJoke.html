@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Joke</title>
+</head>
+<div th:insert="fragments/nav"></div>
+<body>
+
+	<h1>Create Joke</h1>
+	<form action="#" th:action="@{/joke/new}" th:object="${joke}" method="post">
+		<p>Content: <input type="text" th:field="*{content}" /></p>
+	    <p>Punch Line: <input type="text" th:field="*{punchLine}" /></p>
+	    <p>Not Safe For Work: 
+	    	<select th:field="*{nsfw}">
+			    <option th:value="'True'" th:text="true"></option>
+			    <option th:value="'False'" th:text="false"></option>
+			</select>
+		</p>
+	    <p><input type="submit" value="Submit" /></p>
+	</form>
+	
+</body>
+</html>
