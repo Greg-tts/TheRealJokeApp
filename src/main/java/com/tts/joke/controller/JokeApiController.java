@@ -29,6 +29,11 @@ public class JokeApiController {
 		return jokeService.findAll();
 	}
 	
+	@GetMapping("/jokes/nsfw/{nsfw}")
+	public List<Joke> findJokesByNsfw(@PathVariable Boolean nsfw, Joke joke){
+		return jokeService.findByNsfw(nsfw);
+	}
+	
 	@PostMapping("/joke/new")
 	public String createJoke(Joke joke){
 		jokeService.saveJoke(joke);
