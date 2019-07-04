@@ -9,8 +9,8 @@ import com.tts.joke.model.Joke;
 
 @Repository
 public interface JokeRepository extends CrudRepository<Joke, Long> {
-	@Override
-	public List<Joke> findAll();
-	public List<Joke> findAllByNsfw(Boolean nsfw);
+	public Joke findJokeByName(String name);
 	public Joke findJokeById(Long id);
+	public List<Joke> findAll();
+	public List<Joke> findAllJokesByNsfw(Boolean nsfw);
 }

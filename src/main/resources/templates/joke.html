@@ -6,6 +6,7 @@
 </head>
 <div th:insert="fragments/nav"></div>
 <body>
+	<span>Name: </span><div th:text="${joke.name}"></div>
 	<span>Content: </span><div th:text="${joke.content}"></div>
 	<span>Punch Line: </span><div th:text="${joke.punchLine}"></div>
 	<span>NSFW: </span><div th:text="${joke.nsfw}"></div>

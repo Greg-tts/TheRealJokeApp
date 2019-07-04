@@ -9,31 +9,39 @@ import com.tts.joke.model.Joke;
 import com.tts.joke.repository.JokeRepository;
 
 @Service
-public class JokeService {
+public class JokeServiceImpl implements JokeServiceInt{
 	
 	@Autowired
 	private JokeRepository jokeRepository;
-	
+	@Override
 	public List<Joke> findAll(){
 		return jokeRepository.findAll();
 	}
-
+	@Override
+	public List<Joke> findByNsfw(Boolean nsfw) {
+		return jokeRepository.findAllJokesByNsfw(nsfw);
+	}
+	@Override
 	public Joke findJokeById(Long id) {
 		return jokeRepository.findJokeById(id);
 	}
-	
+	@Override
+	public Joke findJokeByName(String name) {
+		return jokeRepository.findJokeByName(name);
+	}
+	@Override
 	public void saveJoke(Joke joke) {
 		jokeRepository.save(joke);
 	}
-	
+	@Override
 	public void deleteAll() {
 		jokeRepository.deleteAll();
 	}
-	
+	@Override
 	public void deleteJokeById(Long id) {
 		jokeRepository.deleteById(id);
 	}
-	
+	@Override
 	public void updateJokeById(Long id, Joke jokeData) {
 		Joke jokeToReplace = jokeRepository.findJokeById(id);
 		String content = jokeData.getContent();
@@ -44,5 +52,4 @@ public class JokeService {
 		if(nsfw != null) jokeToReplace.setNsfw(nsfw);
 		jokeRepository.save(jokeToReplace);
 	}
-	
 }

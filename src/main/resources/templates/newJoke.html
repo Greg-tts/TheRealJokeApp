@@ -9,6 +9,7 @@
 
 	<h1>Create Joke</h1>
 	<form action="#" th:action="@{/joke/new}" th:object="${joke}" method="post">
+		<p>Name: <input type="text" th:field="*{name}" /></p>
 		<p>Content: <input type="text" th:field="*{content}" /></p>
 	    <p>Punch Line: <input type="text" th:field="*{punchLine}" /></p>
 	    <p>Not Safe For Work: 

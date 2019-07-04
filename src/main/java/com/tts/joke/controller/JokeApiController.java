@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tts.joke.model.Joke;
-import com.tts.joke.service.JokeService;
+import com.tts.joke.service.JokeServiceImpl;
 
 @RestController
 @RequestMapping("/api")
 public class JokeApiController {	
 	@Autowired
-	private JokeService jokeService;
+	private JokeServiceImpl jokeService;
 	
 	@GetMapping("/joke/{id}")
 	public Joke findById(@PathVariable("id") Long id) {

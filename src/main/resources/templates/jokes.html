@@ -20,6 +20,7 @@
 	</div>
 	<ul th:each="joke: ${allJokes}">
 		<a th:href="@{/joke/} + ${joke.id}">
+			<li><span>Name: </span><span th:text="${joke.name}"></span></li>
 			<li><span>Content: </span><span th:text="${joke.content}"></span></li>
 			<li><span>Punch Line: </span><span th:text="${joke.punchLine}"></span></li>
 			<li><span>NSFW: </span><span th:text="${joke.nsfw}"></span></li>
